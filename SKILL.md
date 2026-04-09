@@ -1,6 +1,6 @@
 ---
 name: harness-skill
-description: Use when designing, auditing, or refining an AI agent, skill system, or multi-tool harness where reliability, boundary clarity, tool routing, memory policy, scheduling, and failure handling matter more than raw autonomy. Applies to translating open-ended agent behavior into bounded, testable skills, harness rules, or architecture guidance.
+description: Use when designing, auditing, or refining an AI agent, skill system, or multi-tool harness where reliability, boundary clarity, tool routing, memory policy, scheduling, and failure handling matter more than raw autonomy. Also applies to requests about Agent/Skill/Workflow 边界、工具路由、事实校验、失败退路与 Eval 设计.
 ---
 
 # Harness Skill
