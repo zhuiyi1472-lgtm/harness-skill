@@ -39,6 +39,72 @@
 - Harness 架构评审
 - 多工具系统的稳定性设计
 
+### 面向游戏策划的使用案例
+
+如果你是游戏策划，这个 Skill 很适合拿来约束 AI 的输出，让结果更接近可落地的策划产物，而不是泛泛而谈。
+
+典型场景：
+
+- **SLG / 战斗系统设计**
+  - 目标：把一个开放式战斗想法收敛成规则清单、状态机、风险点和数值验证口径
+  - 期望输出：目标、约束、核心机制、极端情况、节奏影响、调参建议、配表字段
+- **英雄 / 技能设计**
+  - 目标：把英雄概念拆成标准技能模块，便于程序和数值协作
+  - 期望输出：定位、触发器、条件、目标、效果、表现重点、字段定义
+- **数值验证 / 经济系统**
+  - 目标：把增长曲线、收益曲线、门槛点和崩坏风险讲清楚
+  - 期望输出：公式、样例区间、极端情况、反雪球手段、调参抓手
+- **配表生成 / 字段设计**
+  - 目标：让 AI 输出适合 Excel/CSV 的结构，而不是只给自然语言
+  - 期望输出：字段名、类型、说明、默认值、校验规则、示例行
+- **原型验证 / 网页工具**
+  - 目标：把策划想法转成最低可运行原型需求，而不是直接陷入过度开发
+  - 期望输出：页面目标、交互块、输入输出、验证指标、最小实现范围
+
+### 游戏策划如何实现
+
+推荐把你的请求写成这类结构：
+
+1. **说清任务类型**
+   - 例如：战斗系统、数值验证、英雄设计、配表整理、网页原型
+2. **说清目标**
+   - 例如：我要拿去写策划案、跟程序对字段、跟美术沟通表现、做数值验证
+3. **说清约束**
+   - 例如：SLG、移动端、3 人小团队、先做 MVP、字段要 CSV 友好
+4. **说清你要的输出形态**
+   - 例如：Markdown 表格、字段定义、伪代码、公式、示例数据
+5. **要求它显式给出验证方式**
+   - 例如：极端情况、收益曲线、风险点、调参建议
+
+可以直接这样调用：
+
+```text
+Use $harness-skill to turn this SLG battle idea into a bounded system design.
+Output in Chinese.
+Need: goal, constraints, core loop, combat rules, edge cases, balance risks,
+table fields, and a lightweight validation plan.
+```
+
+```text
+Use $harness-skill to structure this hero design for game-design implementation.
+Need: role, trigger, condition, target, effect, presentation notes,
+data-table fields, and tuning levers.
+```
+
+```text
+Use $harness-skill to review this progression economy.
+Need: formulas, gain curve, breakpoint ranges, anti-snowball controls,
+extreme cases, and spreadsheet-friendly field definitions.
+```
+
+如果你希望输出更像策划案，可以在提示里额外指定：
+
+- `Output in Markdown with tables.`
+- `Use CSV-friendly field definitions.`
+- `Include tuning levers and edge cases.`
+- `Separate verified facts from assumptions.`
+- `Keep it usable for design, engineering, and balance review.`
+
 ### 仓库结构
 
 ```text
@@ -192,6 +258,71 @@ That makes it especially useful for:
 - skill design and refactoring
 - harness architecture reviews
 - reliability design in multi-tool systems
+
+### Game Design Use Cases
+
+If you are a game designer, this skill is useful for forcing AI output into planning-ready structures instead of vague brainstorming.
+
+Typical cases:
+
+- **SLG / combat system design**
+  - Goal: turn an open combat idea into rules, loop structure, risk analysis, and balance checkpoints
+  - Expected output: goal, constraints, core mechanics, edge cases, pacing impact, tuning levers, table fields
+- **Hero / skill design**
+  - Goal: break a hero concept into implementation-ready skill modules
+  - Expected output: role, trigger, condition, target, effect, presentation notes, field definitions
+- **Numerical validation / economy design**
+  - Goal: explain gain curves, breakpoints, failure modes, and anti-snowball controls
+  - Expected output: formulas, sample ranges, extreme cases, tuning handles, spreadsheet-ready schema
+- **Data tables / content schema**
+  - Goal: produce Excel/CSV-friendly outputs instead of pure prose
+  - Expected output: field names, types, descriptions, defaults, validation rules, sample rows
+- **Prototype validation / web tools**
+  - Goal: convert a design idea into a minimum viable prototype brief instead of overbuilding
+  - Expected output: page goals, interaction blocks, inputs/outputs, validation metrics, minimum scope
+
+### How Game Designers Can Implement It
+
+The easiest way to use this skill is to structure your request like this:
+
+1. **State the task type**
+   - combat system, numerical validation, hero design, content tables, prototype tool
+2. **State the goal**
+   - design doc, engineering handoff, art communication, balance review, prototype verification
+3. **State the constraints**
+   - genre, team size, MVP scope, platform, production limits
+4. **State the output format**
+   - Markdown tables, field definitions, pseudocode, formulas, sample data
+5. **Require explicit validation**
+   - edge cases, gain curves, risks, and tuning suggestions
+
+Prompt examples:
+
+```text
+Use $harness-skill to turn this SLG battle idea into a bounded system design.
+Need: goal, constraints, core loop, combat rules, edge cases, balance risks,
+table fields, and a lightweight validation plan.
+```
+
+```text
+Use $harness-skill to structure this hero design for implementation.
+Need: role, trigger, condition, target, effect, presentation notes,
+data-table fields, and tuning levers.
+```
+
+```text
+Use $harness-skill to review this progression economy.
+Need: formulas, gain curve, breakpoint ranges, anti-snowball controls,
+extreme cases, and spreadsheet-friendly field definitions.
+```
+
+If you want results that look more like design deliverables, add constraints such as:
+
+- `Output in Markdown with tables.`
+- `Use CSV-friendly field definitions.`
+- `Include tuning levers and edge cases.`
+- `Separate verified facts from assumptions.`
+- `Keep it usable for design, engineering, and balance review.`
 
 ### Repository Structure
 
