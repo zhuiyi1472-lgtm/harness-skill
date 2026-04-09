@@ -1,0 +1,7 @@
+interface:
+  display_name: "Harness Skill"
+  short_description: "Design and review AI harnesses, skills, and agent boundaries for stability under uncertainty."
+  default_prompt: "Use $harness-skill to review this agent or skill design for boundary clarity, validation, and failure handling."
+
+policy:
+  allow_implicit_invocation: true
